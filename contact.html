@@ -18,11 +18,14 @@
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
     <link rel="stylesheet" href="css/aos.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
 
     <title>Sisi Academy </title>
   </head>
 
   <body>
+    <div id="toast-container" class="toast-top-right"></div>
     <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close">
@@ -129,20 +132,23 @@
             <form action="#">
               <div class="row">
                 <div class="col-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Your Name" />
+                  <input id="first_name" type="text" class="form-control" placeholder="Your First Name" />
                 </div>
                 <div class="col-6 mb-3">
-                  <input type="email" class="form-control" placeholder="Your Email" />
+                  <input id="last_name" type="text" class="form-control" placeholder="Your Last Name" />
+                </div>
+                <div class="col-6 mb-3">
+                  <input id="email" type="email" class="form-control" placeholder="Your Email" />
+                </div>
+                <div class="col-6 mb-3">
+                  <input id="phone_number" type="number" class="form-control" placeholder="Phone number" />
                 </div>
                 <div class="col-12 mb-3">
-                  <input type="text" class="form-control" placeholder="Subject" />
-                </div>
-                <div class="col-12 mb-3">
-                  <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
                 </div>
 
                 <div class="col-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary" />
+                  <input id="send_msg_btn" type="submit" value="Send Message" class="btn btn-primary" />
                 </div>
               </div>
             </form>
@@ -360,5 +366,8 @@
     <script src="js/jquery.sticky.js"></script>
     <script src="js/aos.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
   </body>
 </html>
