@@ -24,7 +24,9 @@ async function sendMsgHandler(e){
     const payload = JSON.stringify({first_name,last_name,email,phone_number,message})
 
    try {
-    const response = await fetch("http://api.sisiacademy.com/api/enquiries/",{method:"post",body:payload})
+    const response = await fetch("https://api.sisiacademy.com/api/enquiries/",{method:"post",body:payload,headers:{
+        "Content-Type":"application/json"
+    }})
     
     if(response.ok){
         toastr.success("We have received your inquiry and our team will contact you as soon as possible through the email or phone number you provided,Thank you.",)
