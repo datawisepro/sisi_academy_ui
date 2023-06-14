@@ -25,16 +25,35 @@ async function sendMsgHandler(e){
 
    try {
     const response = await fetch("https://api.sisiacademy.com/api/enquiries/",{method:"post",body:payload,headers:{
-        "Content-Type":"application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Request-Headers": "content-type",
+        "Access-Control-Request-Method": "POST",
     }})
+
+    
     
     if(response.ok){
-        toastr.success("We have received your inquiry and our team will contact you as soon as possible through the email or phone number you provided,Thank you.",)
-    }else{
-        toastr.error("Please make sure you have entered the correct details before sending the message")
+        toastr.success("We have received your inquiry and our team will contact you as soon as possible through the email or phone number you provided,Thank you.")
+        return
+        
     }
     
+    // if response is not ok ,we are expecting the response body to contain errors
+    const responseErrors =await response.json()
+
+    let msg = ''
+
+    for(let resError in responseErrors){
+        const errorMsg = responseErrors[resError]
+        
+        msg += `${errorMsg}\n`
+    }
+
+
+     toastr.error(msg)
+    
    } catch (error) {
+    console.log(error)
     toastr.error("An error occur when submitting your details, please try again later.")
 
    }
